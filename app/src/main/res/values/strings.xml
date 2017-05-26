@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tappy External NFC</string>
+    <string name="activity_title">Tappy External NFC</string>
+    <string name="active_devices">Active Devices</string>
+    <string name="autolaunch_urls">Open URLs</string>
+    <string name="scan">Scan</string>
+    <string name="nearby_devices">Nearby Devices</string>
+    <string name="stop_scanning">Stop scan</string>
+    <string name="bluetooth_must_be_supported">Bluetooth must be supported</string>
+    <string name="coarse_location_needed">Coarse location needed to search for BLE devices</string>
+    <string name="bluetooth_must_be_enabled">Bluetooth must be enabled</string>
+</resources>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Tappy Listener</string>
+    <string name="unsupported_record">Unsupported record type</string>
+    <string name="empty_record">Empty record</string>
+    <string name="msg_unsupported_url">Unsupported Url</string>
+    <string name="external_description">External Record\nType: %1$s\nID: %2$s\nPayload: %3$s\n</string>
+    <string name="clear_ndef">Clear NDEF</string>
+    <string name="title_activity_main2">Tag Scan Results</string>
+    <string name="tag_serial">Tag Serial</string>
+    <string name="ndef_content">NDEF Content</string>
+    <string name="no_ndef_data_found">No NDEF data present</string>
+    <string name="no_data_present">No data present</string>
+    <string name="ultralight_title">MIFARE Ultralight</string>
+    <string name="ntag203_title">MIFARE NTAG203</string>
+    <string name="ultralight_c_title">MIFARE Ultralight C</string>
+    <string name="std_1k_title">MIFARE Standard 1K</string>
+    <string name="std_4k_title">MIFARE Standard 4K</string>
+    <string name="desfire_ev1_2k_title">MIFARE DESFire EV1 2K</string>
+    <string name="unk_type2_title">Unknown Type 2</string>
+    <string name="plus_2k_title">MIFARE Plus 2K</string>
+    <string name="plus_4k_title">MIFARE Plus 4K</string>
+    <string name="mini_title">MIFARE Mini</string>
+    <string name="other_type4_title">Other Type 4</string>
+    <string name="desfire_ev1_4k_title">MIFARE DESFire EV1 4K</string>
+    <string name="desfire_ev1_8k">MIFARE DESFire EV1 8K</string>
+    <string name="desfire_title">MIFARE DESFire</string>
+    <string name="topaz_512_title">TOPAZ 512</string>
+    <string name="ntag_210_title">MIFARE NTAG210</string>
+    <string name="ntag_212_title">MIFARE NTAG212</string>
+    <string name="ntag_213_title">MIFARE NTAG213</string>
+    <string name="ntag_215_title">MIFARE NTAG215</string>
+    <string name="ntag_216_title">MIFARE NTAG216</string>
+    <string name="no_tag_title">No Tag</string>
+    <string name="unk_type_title">Unknown Type</string>
+    <string name="tag_type">Tag Type</string>
+</resources>
