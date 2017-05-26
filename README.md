@@ -41,7 +41,7 @@ and extras are as follows:
 __Action:__ "com.taptrack.roaring.NDEF_FOUND"
 
 #### Extras
-_NfcAdapter.EXTRA_ID_: byte array containing the tag's serial number. For most tags this will wither
+_NfcAdapter.EXTRA_ID_: byte array containing the tag's serial number. For most tags this will either
 be 4 or 7 bytes long.
 
 _NfcAdapter.EXTRA_NDEF_MESSAGES_: Parcelable array containing the NdefMessage found on the tag.
@@ -59,7 +59,7 @@ and extras are as follows:
 __Action:__ "com.taptrack.roaring.TAG_FOUND"
 
 #### Extras
-_NfcAdapter.EXTRA_ID_: byte array containing the tag's serial number. For most tags this will wither
+_NfcAdapter.EXTRA_ID_: byte array containing the tag's serial number. For most tags this will either
 be 4 or 7 bytes long.
 
 _"com.taptrack.roaring.extra.TAG_TYPE"_: Integer describing the type of tag that was tapped. The meaning
