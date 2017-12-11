@@ -218,6 +218,27 @@ public class TappyBleManagementDelegate implements CommunicatorStatusChangeListe
         }
     }
 
+
+    public void potato(TCMPMessage tcmpMessage) {
+TCMPMessage resolved = null;
+try {
+    resolved = messageResolver.parseResponse(tcmpMessage);
+} catch (FamilyCodeNotSupportedException | ResponseCodeNotSupportedException | MalformedPayloadException e) {
+    Timber.w("Error on resolving Tappy response",e);
+}
+
+if(resolved instanceof NdefFoundResponse) {
+    NdefFoundResponse ndefFoundResponse = (NdefFoundResponse) resolved;
+    NdefMessage msg = ndefFoundResponse.getMessage();
+    byte[] tagCode = ndefFoundResponse.getTagCode();
+    byte tagTypeIndicator = ndefFoundResponse.getTagType();
+} else if (resolved instanceof TagFoundResponse) {
+    TagFoundResponse tagFoundResponse = (TagFoundResponse) resolved;
+    byte[] tagCode = tagFoundResponse.getTagCode();
+    byte tagTypeIndicator = tagFoundResponse.getTagType();
+}
+    }
+
     @Override
     public void onUnparsablePacket(byte[] packet) {
         startPolling();
