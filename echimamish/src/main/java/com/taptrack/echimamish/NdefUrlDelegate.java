@@ -80,6 +80,9 @@ public class NdefUrlDelegate extends
                 case 0x04:
                     url = "https://" + new String(Arrays.copyOfRange(uriPayload, 1, uriPayload.length));
                     break;
+                case 0x06:
+                    url = "mailto:" + new String(Arrays.copyOfRange(uriPayload, 1, uriPayload.length));
+                    break;
             }
         }
         return url;
