@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="connected_tappy_color">#25A2E8</color>
-    <color name="error_tappy_color">#F44336</color>
-    <color name="disconnected_tappy_color">#898989</color>
-    <color name="found_tappy_color">#898989</color>
-</resources>

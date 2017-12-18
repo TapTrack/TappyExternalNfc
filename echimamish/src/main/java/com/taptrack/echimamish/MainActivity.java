@@ -40,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        currentViewState = viewStateFromBundle(savedInstanceState);
+        if (savedInstanceState != null) {
+            currentViewState = viewStateFromBundle(savedInstanceState);
+        } else {
+            currentViewState = viewStateFromBundle(getIntent().getExtras());
+        }
 
         reset();
     }

@@ -1,6 +1,6 @@
 # Tappy External NFC
 
-This project includes a simple utility for connecting to TappyBLE devices, initiating tag polling,
+This project includes a simple utility for connecting to TappyBLE and TappyUSB devices, initiating tag polling,
 and broadcasting the results to other applications that may be listening. Additionally, it has the
 capability to automatically launch URLs found on NDEF-formatted tags.
 
@@ -10,10 +10,11 @@ capability to automatically launch URLs found on NDEF-formatted tags.
 
 Play store: [com.taptrack.roaring](https://play.google.com/store/apps/details?id=com.taptrack.roaring)
 
-This is the primary component of the Tappy External NFC project. It is an app that scans for Tappies,
-connects to them, initiates polling, and reconnects if the connection drops unexpectedly. It also has
-the capability to automatically launch URLs read from NDEF-formatted tags similar to Android's
-built-in behaviour if the user so chooses.
+This is the primary component of the Tappy External NFC project. This app allows the user to select a
+combination of TappyUSB and/or TappyBLE devices that the application will then connect to, initiate polling
+on, and broadcast responses from using the Intents detailed below.  It can also optionally has
+launch URLs read from NDEF-formatted tags similar to Android's built-in behaviour if the user so chooses.
+Additionally, if a TappyBLE connection unexpectedly drops, the app will automatically attempt to reconnect.
 
 ### echimamish
 
@@ -22,11 +23,6 @@ Play store: [com.taptrack.echimamish](https://play.google.com/store/apps/details
 This is another app that serves as an example of listening to the broadcasts sent by the main
 External NFC app. It listens for the NDEF_FOUND and TAG_FOUND broadcasts sent by the main app
 and displays the data received in a simple view similar to Android's built-in tag viewer.
-
-### swan
-
-This is just a small library providing some Tappy-related UI components that are used by the primary
-External NFC app.
 
 ## Integrating with the Tappy External NFC app
 

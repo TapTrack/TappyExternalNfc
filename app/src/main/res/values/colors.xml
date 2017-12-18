@@ -3,4 +3,15 @@
     <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#1565c0</color>
     <color name="colorAccent">#2196F3</color>
+
+    <color name="autolaunchIconColor">#898989</color>
+    <color name="foundTappyColor">#898989</color>
+    <color name="removeTappyColor">#898989</color>
+    <color name="translucentBlack">#30000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="launchBackground">#555</color>
+
+    <color name="connected_tappy_color">@color/colorPrimary</color>
+    <color name="error_tappy_color">#FF0000</color>
+    <color name="disconnected_tappy_color">@color/foundTappyColor</color>
 </resources>
