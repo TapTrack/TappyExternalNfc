@@ -34,7 +34,7 @@ have to register a broadcast receiver listening for one of two Intents:
 This intent is broadcast when a tag is found that contains NDEF-formatted data, it's action string
 and extras are as follows:
 
-__Action:__ "com.taptrack.roaring.NDEF_FOUND"
+__Action:__ "com.taptrack.roaring.action.NDEF_FOUND"
 
 #### Extras
 _NfcAdapter.EXTRA_ID_: byte array containing the tag's serial number. For most tags this will either
@@ -52,7 +52,7 @@ file in the tappy-constants module of the full TappyBLE SDK or in the Tappy's do
 This intent is broadcast when a tag is found that does not contain NDEF-formatted data, it's action string
 and extras are as follows:
 
-__Action:__ "com.taptrack.roaring.TAG_FOUND"
+__Action:__ "com.taptrack.roaring.action.TAG_FOUND"
 
 #### Extras
 _NfcAdapter.EXTRA_ID_: byte array containing the tag's serial number. For most tags this will either
