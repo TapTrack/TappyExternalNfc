@@ -1,8 +1,8 @@
 package com.taptrack.roaring.findtappies
 
 import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -36,7 +36,7 @@ inline fun ViewManager.tappyControlView(init: TappyControlView.() -> Unit): Tapp
     return ankoView({ TappyControlView(it) }, theme = 0, init = init)
 }
 
-class TappyControlView : RecyclerView {
+class TappyControlView : androidx.recyclerview.widget.RecyclerView {
     private var state: TappyControlViewState = TappyControlViewState(emptySet())
     private lateinit var adapter: TappyControlAdapter
 
@@ -60,7 +60,7 @@ class TappyControlView : RecyclerView {
     }
 
     private fun initTappyControlView(context: Context) {
-        layoutManager = LinearLayoutManager(context)
+        layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         adapter = TappyControlAdapter()
         setAdapter(adapter)
         reset()
@@ -87,7 +87,7 @@ class TappyControlView : RecyclerView {
     }
 }
 
-private class TappyControlAdapter : RecyclerView.Adapter<TappyControlAdapter.VH>() {
+private class TappyControlAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<TappyControlAdapter.VH>() {
     private var namedTappyWithStatuses: List<NamedTappy>
     private var listener: TappyControlListener? = null
 
@@ -122,7 +122,7 @@ private class TappyControlAdapter : RecyclerView.Adapter<TappyControlAdapter.VH>
         return namedTappyWithStatuses.size
     }
 
-    inner class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class VH(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         internal var namedTappy: NamedTappy? = null
 
         internal var tappyNameView: TextView

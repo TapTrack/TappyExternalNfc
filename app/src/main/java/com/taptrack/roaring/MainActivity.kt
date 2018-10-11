@@ -10,10 +10,10 @@ import android.hardware.usb.UsbManager
 import android.os.Build
 import android.os.IBinder
 import android.os.Looper
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatDelegate
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatDelegate
+import com.google.android.material.snackbar.Snackbar
 import com.jakewharton.rxrelay2.BehaviorRelay
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -36,7 +36,7 @@ import org.jetbrains.anko.contentView
 import timber.log.Timber
 
 
-class MainActivity : android.support.v7.app.AppCompatActivity(), ChooseTappiesViewModelProvider {
+class MainActivity : androidx.appcompat.app.AppCompatActivity(), ChooseTappiesViewModelProvider {
     private val TAG = MainActivity::class.java.name
 
     private lateinit var permissionDelegate: UsbPermissionDelegate
@@ -164,9 +164,9 @@ class MainActivity : android.support.v7.app.AppCompatActivity(), ChooseTappiesVi
             roaringApp.setAutolaunchEnabled(shouldBeEnabled)
             if (localButtonCopy != null) {
                 if (shouldBeEnabled) {
-                    Snackbar.make(localButtonCopy,R.string.automatic_url_launching_enabled,Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(localButtonCopy,R.string.automatic_url_launching_enabled, Snackbar.LENGTH_SHORT).show()
                 } else {
-                    Snackbar.make(localButtonCopy,R.string.automatic_url_launching_disabled,Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(localButtonCopy,R.string.automatic_url_launching_disabled, Snackbar.LENGTH_SHORT).show()
                 }
             }
         })

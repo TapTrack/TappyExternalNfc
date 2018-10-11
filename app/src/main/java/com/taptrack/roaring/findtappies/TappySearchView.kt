@@ -2,10 +2,10 @@ package com.taptrack.roaring.findtappies
 
 import android.content.Context
 import android.hardware.usb.UsbDevice
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.appcompat.widget.AppCompatImageView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -48,7 +48,7 @@ inline fun ViewManager.tappySearchView(init: TappySearchView.() -> Unit): TappyS
     return ankoView({ TappySearchView(it) }, theme = 0, init = init)
 }
 
-class TappySearchView : RecyclerView {
+class TappySearchView : androidx.recyclerview.widget.RecyclerView {
     private lateinit var adapter: TappySearchAdapter
     var currentTappies: Collection<ChoosableTappy> = emptySet()
     set(value) {
@@ -80,7 +80,7 @@ class TappySearchView : RecyclerView {
     }
 
     private fun initTappySearchView(context: Context) {
-        layoutManager = LinearLayoutManager(context)
+        layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         adapter = TappySearchAdapter()
         setAdapter(adapter)
         currentTappies = emptySet()
@@ -100,7 +100,7 @@ class TappySearchView : RecyclerView {
     }
 }
 
-private class TappySearchAdapter : RecyclerView.Adapter<TappySearchAdapter.VH>() {
+private class TappySearchAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<TappySearchAdapter.VH>() {
     private var tappySelectionListener: TappySelectionListener? = null
     private var deviceList: List<ChoosableTappy>
 
@@ -151,7 +151,7 @@ private class TappySearchAdapter : RecyclerView.Adapter<TappySearchAdapter.VH>()
         result.dispatchUpdatesTo(this)
     }
 
-    internal inner class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    internal inner class VH(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         private val iconView: AppCompatImageView = itemView.find<AppCompatImageView>(R.id.iv_icon)
         private val tappyTitleView: TextView = itemView.find<TextView>(R.id.tv_title)
         private val tappySubtitleView: TextView = itemView.find<TextView>(R.id.tv_subtitle)

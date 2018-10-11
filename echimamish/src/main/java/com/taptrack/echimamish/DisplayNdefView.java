@@ -3,16 +3,17 @@ package com.taptrack.echimamish;
 import android.content.Context;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-import com.hannesdorfmann.adapterdelegates3.ListDelegationAdapter;
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DisplayNdefView extends RecyclerView {
     protected NdefRecordAdapter adapter;
@@ -35,7 +36,7 @@ public class DisplayNdefView extends RecyclerView {
 
     public void init(Context ctx) {
         adapter = new NdefRecordAdapter();
-        setLayoutManager(new LinearLayoutManager(ctx,LinearLayoutManager.VERTICAL,false));
+        setLayoutManager(new LinearLayoutManager(ctx,RecyclerView.VERTICAL,false));
         setAdapter(adapter);
     }
 

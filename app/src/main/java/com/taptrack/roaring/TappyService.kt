@@ -9,7 +9,6 @@ import android.nfc.NdefMessage
 import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
 import android.os.*
-import android.util.Log
 import com.taptrack.experiments.rancheria.business.TappyNotificationManager
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException
 import com.taptrack.tcmptappy2.*
@@ -186,7 +185,7 @@ class TappyService: Service() {
         }
         val responseListener = Tappy.ResponseListener {
             val response = it
-            Log.i(TAG,"Received message from TappyBLE")
+            Timber.i(TAG,"Received message from TappyBLE")
             mtHandler.post {
                 handleMessage(it)
             }
@@ -364,14 +363,14 @@ class TappyService: Service() {
 
         if (attemptReconnect) {
             val definition = tappyBle.backingDeviceDefinition
-            mtHandler.post({
+            mtHandler.post {
                 connectTappyBle(definition)
-            })
+            }
         }
     }
 
     private fun connectTappyUsb(device: UsbDevice) {
-        Log.i(TAG,"Attempting to connect to USB device")
+        Timber.i(TAG,"Attempting to connect to USB device")
 
         connectionsRwLock.writeLock().lock()
 
@@ -382,7 +381,7 @@ class TappyService: Service() {
 
         val tappy = TappyUsb.getTappyUsb(this,device)
         if(tappy == null) {
-            Log.i(TAG,"Tappy was null")
+            Timber.i(TAG,"Tappy was null")
             return
         }
 
@@ -404,7 +403,7 @@ class TappyService: Service() {
 
         val responseListener = Tappy.ResponseListener {
             val response = it
-            Log.i(TAG,"Received message from TappyUSB")
+            Timber.i(TAG,"Received message from TappyUSB")
             mtHandler.post {
                 handleMessage(it)
             }
@@ -466,16 +465,39 @@ class TappyService: Service() {
     }
 
     protected fun broadcastCompat(intent: Intent) {
-        val pm = packageManager
-        val matches = pm.queryBroadcastReceivers(intent, 0)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val pm = packageManager
+            val matches = pm.queryBroadcastReceivers(intent, 0)
 
-        for (resolveInfo in matches) {
-            val explicit = Intent(intent)
-            val cn = ComponentName(resolveInfo.activityInfo.applicationInfo.packageName,
-                    resolveInfo.activityInfo.name)
+            for (resolveInfo in matches) {
+                if (resolveInfo.activityInfo != null) {
+                    val explicit = Intent(intent)
+                    val cn = ComponentName(resolveInfo.activityInfo.applicationInfo.packageName,
+                            resolveInfo.activityInfo.name)
 
-            explicit.component = cn
-            sendBroadcast(explicit)
+                    explicit.component = cn
+                    sendBroadcast(explicit)
+                } else if (resolveInfo.serviceInfo != null) {
+                    val explicit = Intent(intent)
+                    val cn = ComponentName(resolveInfo.serviceInfo.applicationInfo.packageName,
+                            resolveInfo.serviceInfo.name)
+
+                    explicit.component = cn
+                    sendBroadcast(explicit)
+                } else if (resolveInfo.providerInfo != null) {
+                    val explicit = Intent(intent)
+                    val cn = ComponentName(resolveInfo.providerInfo.applicationInfo.packageName,
+                            resolveInfo.providerInfo.name)
+
+                    explicit.component = cn
+                    sendBroadcast(explicit)
+                }
+            }
+
+            // also send implicit for runtime-registered receivers
+            sendBroadcast(intent)
+        } else {
+            sendBroadcast(intent)
         }
     }
     companion object {

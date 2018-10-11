@@ -2,8 +2,6 @@ package com.taptrack.roaring.findtappies
 
 import android.content.Context
 import android.hardware.usb.UsbDevice
-import android.support.annotation.UiThread
-import android.support.v4.widget.NestedScrollView
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.ViewGroup
@@ -11,6 +9,8 @@ import android.view.ViewManager
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.annotation.UiThread
+import androidx.core.widget.NestedScrollView
 import com.taptrack.roaring.R
 import com.taptrack.roaring.utils.getHostActivity
 import com.taptrack.roaring.utils.setTextAppearanceCompat

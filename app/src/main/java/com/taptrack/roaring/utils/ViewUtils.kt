@@ -3,7 +3,7 @@ package com.taptrack.roaring.utils
 import android.app.Activity
 import android.content.ContextWrapper
 import android.os.Build
-import android.support.annotation.StyleRes
+import androidx.annotation.StyleRes
 import android.view.View
 import android.widget.TextView
 
