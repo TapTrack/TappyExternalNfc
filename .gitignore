@@ -1,5 +1,6 @@
 app/release/
 /.idea/caches
+/.idea/kotlinc.xml
 echimamish/release/
 *.iml
 .gradle
