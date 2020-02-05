@@ -10,7 +10,7 @@ import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
 import android.os.*
 import com.taptrack.experiments.rancheria.business.TappyNotificationManager
-import com.taptrack.tcmptappy.tcmp.MalformedPayloadException
+//import com.taptrack.tcmptappy.tcmp.MalformedPayloadException
 import com.taptrack.tcmptappy2.*
 import com.taptrack.tcmptappy2.ble.TappyBle
 import com.taptrack.tcmptappy2.ble.TappyBleDeviceDefinition
