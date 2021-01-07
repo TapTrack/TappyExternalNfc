@@ -1,8 +1,6 @@
 package com.taptrack.roaring.findtappies
 
 import android.content.Context
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +28,7 @@ interface TappyControlListener {
 }
 
 
-inline fun ViewManager.tappyControlView() = tappyControlView({})
+fun ViewManager.tappyControlView() = tappyControlView { }
 
 inline fun ViewManager.tappyControlView(init: TappyControlView.() -> Unit): TappyControlView {
     return ankoView({ TappyControlView(it) }, theme = 0, init = init)
@@ -40,10 +38,8 @@ class TappyControlView : androidx.recyclerview.widget.RecyclerView {
     private var state: TappyControlViewState = TappyControlViewState(emptySet())
     private lateinit var adapter: TappyControlAdapter
 
-    private val tappySorter = object : Comparator<NamedTappy> {
-        override fun compare(o1: NamedTappy?, o2: NamedTappy?): Int {
-            return o1!!.name.compareTo(o2!!.name)
-        }
+    private val tappySorter = Comparator<NamedTappy> {
+        o1, o2 -> o1!!.name.compareTo(o2!!.name)
     }
 
     constructor(context: Context) : super(context) {
@@ -113,9 +109,7 @@ private class TappyControlAdapter : androidx.recyclerview.widget.RecyclerView.Ad
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val tappy = namedTappyWithStatuses[position]
-        if (tappy != null) {
-            holder.bind(tappy)
-        }
+        holder.bind(tappy)
     }
 
     override fun getItemCount(): Int {
@@ -151,7 +145,7 @@ private class TappyControlAdapter : androidx.recyclerview.widget.RecyclerView.Ad
                     R.color.removeTappyColor
             )
             removeButton.setOnClickListener {
-                val localTappy = namedTappy;
+                val localTappy = namedTappy
                 if (this@TappyControlAdapter.listener != null && localTappy != null) {
                     this@TappyControlAdapter.listener!!.requestRemove(localTappy)
                 }
@@ -164,7 +158,7 @@ private class TappyControlAdapter : androidx.recyclerview.widget.RecyclerView.Ad
         }
 
         private fun reset() {
-            val namedTappy = this.namedTappy;
+            val namedTappy = this.namedTappy
             if (namedTappy != null) {
                 tappyNameView.text = namedTappy.name
 
@@ -174,7 +168,7 @@ private class TappyControlAdapter : androidx.recyclerview.widget.RecyclerView.Ad
                     iconInt = R.drawable.ic_usb_black_24dp
                 }
 
-                var showProgress: Boolean = false
+                var showProgress = false
 
                 when(namedTappy.tappy.latestStatus) {
                     Tappy.STATUS_CONNECTING -> {

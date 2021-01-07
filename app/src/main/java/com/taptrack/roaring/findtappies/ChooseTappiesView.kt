@@ -4,7 +4,6 @@ import android.content.Context
 import android.hardware.usb.UsbDevice
 import android.util.AttributeSet
 import android.view.Gravity
-import android.view.ViewGroup
 import android.view.ViewManager
 import android.widget.LinearLayout
 import android.widget.ProgressBar
@@ -19,14 +18,14 @@ import io.reactivex.disposables.Disposable
 import org.jetbrains.anko.*
 import org.jetbrains.anko.custom.ankoView
 
-inline fun ViewManager.chooseTappiesView() = chooseTappiesView({})
+fun ViewManager.chooseTappiesView() = chooseTappiesView { }
 
 inline fun ViewManager.chooseTappiesView(init: ChooseTappiesView.() -> Unit): ChooseTappiesView {
     return ankoView({ ChooseTappiesView(it) }, theme = 0, init = init)
 }
 
 class ChooseTappiesView : NestedScrollView {
-    public var vm: ChooseTappiesViewModel? = null
+    var vm: ChooseTappiesViewModel? = null
 
     private lateinit var tappyControlView: TappyControlView
     private lateinit var tappySearchView: TappySearchView
@@ -34,7 +33,7 @@ class ChooseTappiesView : NestedScrollView {
     private lateinit var activeHeadingView: TextView
     private lateinit var searchHeadingView: TextView
 
-    private var state: ChooseTappiesViewState = ChooseTappiesViewState.Companion.initialState()
+    private var state: ChooseTappiesViewState = ChooseTappiesViewState.initialState()
     private var disposable: Disposable? = null
 
     constructor(context: Context) :
@@ -52,7 +51,7 @@ class ChooseTappiesView : NestedScrollView {
 
     private fun init(context: Context) {
 
-        val llLayoutParams = ViewGroup.MarginLayoutParams(matchParent, matchParent)
+        val llLayoutParams = MarginLayoutParams(matchParent, matchParent)
         linearLayout {
             orientation = LinearLayout.VERTICAL
 
@@ -116,7 +115,7 @@ class ChooseTappiesView : NestedScrollView {
     }
 
     @UiThread
-    public fun setState(state: ChooseTappiesViewState) {
+    fun setState(state: ChooseTappiesViewState) {
         this.state = state
         reset()
     }

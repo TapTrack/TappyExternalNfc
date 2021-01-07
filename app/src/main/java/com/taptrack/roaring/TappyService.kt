@@ -339,7 +339,7 @@ class TappyService: Service() {
     private fun signalTappiesToDispatch() {
         mtHandler.postDelayed( {
             sendTcmp(DispatchTagsCommand())
-        }, 50);
+        }, 50)
 
     }
 

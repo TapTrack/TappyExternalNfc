@@ -3,9 +3,9 @@ package com.taptrack.roaring.utils
 import android.app.Activity
 import android.content.ContextWrapper
 import android.os.Build
-import androidx.annotation.StyleRes
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.StyleRes
 
 fun TextView.setTextAppearanceCompat(@StyleRes appearance: Int) {
     if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -15,13 +15,13 @@ fun TextView.setTextAppearanceCompat(@StyleRes appearance: Int) {
     }
 }
 
-inline fun View.getHostActivity(): Activity? {
+fun View.getHostActivity(): Activity? {
     var context = this.context
     while (context is ContextWrapper) {
         if (context is Activity) {
             return context
         }
-        context = (context as ContextWrapper).baseContext
+        context = context.baseContext
     }
     return null
 }

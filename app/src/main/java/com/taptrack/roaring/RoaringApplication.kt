@@ -9,8 +9,8 @@ import io.reactivex.Observable
 import timber.log.Timber
 
 class RoaringApplication : Application() {
-    lateinit private var prefs: SharedPreferences
-    lateinit private var rxPrefs: RxSharedPreferences
+    private lateinit var prefs: SharedPreferences
+    private lateinit var rxPrefs: RxSharedPreferences
 
     override fun onCreate() {
         super.onCreate()
@@ -32,13 +32,13 @@ class RoaringApplication : Application() {
     }
 
     companion object {
-        val ACTION_TAG_FOUND = "com.taptrack.roaring.action.TAG_FOUND"
-        val ACTION_NDEF_FOUND = "com.taptrack.roaring.action.NDEF_FOUND"
-        val EXTRA_TAG_TYPE_INT = "com.taptrack.roaring.extra.TAG_TYPE"
+        const val ACTION_TAG_FOUND = "com.taptrack.roaring.action.TAG_FOUND"
+        const val ACTION_NDEF_FOUND = "com.taptrack.roaring.action.NDEF_FOUND"
+        const val EXTRA_TAG_TYPE_INT = "com.taptrack.roaring.extra.TAG_TYPE"
 
         private val PREFS_GLOBAL = RoaringApplication::class.java.name+".PREFS_GLOBAL"
         private val KEY_AUTOLAUNCH = RoaringApplication::class.java.name+".KEY_AUTOLAUNCH"
     }
 }
 
-inline fun Context.getRoaringApplication() = this.applicationContext as RoaringApplication
+fun Context.getRoaringApplication() = this.applicationContext as RoaringApplication

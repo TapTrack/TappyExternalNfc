@@ -82,7 +82,7 @@ class MainActivity : androidx.appcompat.app.AppCompatActivity(), ChooseTappiesVi
         private var stateRelay: BehaviorRelay<ChooseTappiesViewState> = BehaviorRelay.createDefault(state)
 
         fun setSearchResults(bleDevices: Collection<TappyBleDeviceDefinition>, usbDevices: Collection<UsbDevice>) {
-            var newState: ChooseTappiesViewState? = null
+            var newState: ChooseTappiesViewState?
             synchronized(stateMutationLock) {
                 newState = state.copy(foundBleDevices = bleDevices, foundUsbDevices = usbDevices)
                 state = newState ?: state
@@ -100,7 +100,7 @@ class MainActivity : androidx.appcompat.app.AppCompatActivity(), ChooseTappiesVi
                     else -> NamedTappy(tappy = it, name = getString(R.string.unknown_tappy_name))
                 }
             }
-            var newState: ChooseTappiesViewState? = null
+            var newState: ChooseTappiesViewState?
             synchronized(stateMutationLock) {
                 newState = state.copy(activeDevices = named)
                 state = newState ?: state
@@ -202,7 +202,7 @@ class MainActivity : androidx.appcompat.app.AppCompatActivity(), ChooseTappiesVi
 
     private fun addUsbDeviceFromIntent(intent: Intent?) {
         if (intent != null && intent.hasExtra(UsbManager.EXTRA_DEVICE)) {
-            val device = intent.getParcelableExtra<UsbDevice>(UsbManager.EXTRA_DEVICE)
+            val device = intent.getParcelableExtra<UsbDevice>(UsbManager.EXTRA_DEVICE)!!
             connectToUsbDevice(device)
         }
     }
@@ -248,11 +248,11 @@ class MainActivity : androidx.appcompat.app.AppCompatActivity(), ChooseTappiesVi
         val app = getRoaringApplication()
         preferencesDisposable = app.getAutolaunchEnabled()
                 .subscribe {
-            isAutolaunchingEnabled = it
-            handler.post({
-                resetOpenUrlsButton()
-            })
-        }
+                    isAutolaunchingEnabled = it
+                    handler.post {
+                        resetOpenUrlsButton()
+                    }
+                }
 
         permissionDelegate.register()
         bindService(Intent(this, TappyService::class.java),serviceConnection, Context.BIND_AUTO_CREATE or Context.BIND_IMPORTANT)
@@ -296,4 +296,3 @@ class MainActivity : androidx.appcompat.app.AppCompatActivity(), ChooseTappiesVi
         }
     }
 }
-
