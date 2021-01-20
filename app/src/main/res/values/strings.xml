@@ -7,7 +7,7 @@
     <string name="nearby_devices">Nearby Devices</string>
     <string name="stop_scanning">Stop scan</string>
     <string name="bluetooth_must_be_supported">Bluetooth must be supported</string>
-    <string name="coarse_location_needed">Coarse location needed to search for BLE devices</string>
+    <string name="fine_location_needed">Fine location needed to search for BLE devices</string>
     <string name="bluetooth_must_be_enabled">Bluetooth must be enabled</string>
     <string name="active_tappies_notification_title">Tappies Active</string>
     <string name="one_tappy_active_notification_content">One Tappy active</string>
@@ -17,7 +17,7 @@
     <string name="automatic_url_launching_disabled">Automatic URL launching disabled</string>
     <string name="open_url_with">Open URL with</string>
 
-    <string name="coarse_location_needed_rationale">Coarse location is needed to search for BLE devices</string>
+    <string name="fine_location_needed_rationale">Fine location is needed to search for BLE devices</string>
     <string name="settings">Settings</string>
     <string name="tappy_usb_name">TappyUSB</string>
     <string name="unknown_tappy_name">Unknown Tappy</string>
