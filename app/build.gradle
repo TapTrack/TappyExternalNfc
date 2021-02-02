@@ -52,11 +52,11 @@ dependencies {
 
     implementation 'com.karumi:dexter:4.1.0'
 
-    implementation 'com.taptrack.tcmptappy2:tappyble:2.1.0'
-    implementation 'com.taptrack.tcmptappy2:tcmp:2.1.0'
+    implementation 'com.taptrack.tcmptappy2:tappyble:2.2.0'
+    implementation 'com.taptrack.tcmptappy2:tcmp:2.2.0'
     implementation 'com.taptrack.tcmptappy:blescannercompat:0.9.3'
-    implementation 'com.taptrack.tcmptappy2:tappyusb:2.1.0'
-    implementation 'com.taptrack.tcmptappy2:tappy:2.1.0'
+    implementation 'com.taptrack.tcmptappy2:tappyusb:2.2.0'
+    implementation 'com.taptrack.tcmptappy2:tappy:2.2.0'
 
     implementation 'com.github.felHR85:UsbSerial:4.5'
     // new
