@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
 
     defaultConfig {
         applicationId "com.taptrack.echimamish"
         minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 5
-        versionName "1.2.1"
+        targetSdkVersion 30
+        versionCode 6
+        versionName "1.3.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
